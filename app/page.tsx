@@ -239,7 +239,7 @@ export default function Home() {
           </div>
           <div className="rounded-2xl overflow-hidden border border-ink/10 min-h-[300px]">
             <iframe
-              src="https://www.google.com/maps?q=RH7R%2BMV6%2C+RT.001%2FRW.003%2C+Sangiang+Jaya%2C+Periuk%2C+Tangerang+City%2C+Banten+15132%2C+Indonesia&output=embed"
+              src="https://www.google.com/maps?q=-6.867278,107.652778&output=embed"
               className="w-full h-full min-h-[300px]"
               style={{ border: 0 }}
               loading="lazy"
