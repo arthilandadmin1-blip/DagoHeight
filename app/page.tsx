@@ -76,26 +76,26 @@ export default function Home() {
       <section id="beranda" className="pt-32 pb-20 px-6 lg:px-10">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
           <div>
-            <p className="brass-line inline-block text-brass text-sm tracking-[0.2em] uppercase mb-8 pb-3 font-medium">Properti Premium Tangerang</p>
+            <p className="brass-line inline-block text-brass text-sm tracking-[0.2em] uppercase mb-8 pb-3 font-medium">PROPERTI EKSKLUSIF BANDUNG</p>
             <h1 className="font-display text-5xl lg:text-6xl leading-[1.08] text-ink mb-6">
-              Temukan rumah<br />impian Anda di<br /><span className="italic text-estate text-7xl lg:text-8xl">Tangerang</span>
+              Temukan villa<br />impian Anda di<br /><span className="italic text-estate text-7xl lg:text-8xl">Dago</span>
             </h1>
             <p className="text-stone text-lg leading-relaxed mb-10 max-w-md">
-              Kurasi hunian terpercaya di BSD, Alam Sutera, Gading Serpong, dan Bintaro — didampingi tim sales profesional dari awal hingga akad.
+              Hunian eksklusif tiga lantai dengan private pool dan panorama Bandung. Dirancang untuk tempat beristirahat, berkumpul, sekaligus menjadi aset properti bernilai.
             </p>
 
             <div className="flex gap-10 mt-12">
               <div>
-                <p className="font-display text-3xl text-ink">0</p>
-                <p className="text-sm text-stone mt-1">Properti terdaftar</p>
+                <p className="font-display text-3xl text-ink">25</p>
+                <p className="text-sm text-stone mt-1">Unit Eksklusif</p>
               </div>
               <div>
-                <p className="font-display text-3xl text-ink">0</p>
-                <p className="text-sm text-stone mt-1">Kawasan Tangerang</p>
+                <p className="font-display text-3xl text-ink">3</p>
+                <p className="text-sm text-stone mt-1">Lantai</p>
               </div>
               <div>
                 <p className="font-display text-3xl text-ink">1</p>
-                <p className="text-sm text-stone mt-1">Sales berpengalaman</p>
+                <p className="text-sm text-stone mt-1">Private pool per unit</p>
               </div>
             </div>
           </div>
