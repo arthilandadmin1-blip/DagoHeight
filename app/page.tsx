@@ -49,7 +49,7 @@ export default function Home() {
     <nav className="hidden md:flex items-center text-sm text-white/80">
       {[
         ["Beranda", "#beranda"],
-        ["Properti", "#properti"],
+        ["Properti", "#properties"],
         ["Lokasi", "#lokasi"],
         ["Tentang", "#tentang"],
         ["Kontak", "#kontak"],
@@ -886,7 +886,8 @@ export default function Home() {
       {/* CTA buttons */}
       <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
-          href="#properti"
+          href="#properties"
+          
           className="group inline-flex min-w-[220px] items-center justify-center gap-5 bg-[#B98A4A] px-7 py-4 text-[10px] font-semibold uppercase tracking-[0.17em] text-[#071712] transition-all duration-300 hover:bg-[#D0A766]"
         >
           Lihat Semua Properti
@@ -902,7 +903,7 @@ export default function Home() {
           rel="noopener noreferrer"
           className="group inline-flex min-w-[220px] items-center justify-center gap-5 border border-[#B98A4A]/70 px-7 py-4 text-[10px] font-semibold uppercase tracking-[0.17em] text-[#E8DDC8] transition-all duration-300 hover:border-[#B98A4A] hover:bg-[#B98A4A]/10"
         >
-          Hubungi WhatsApp
+          Book Unit
 
           <svg
             viewBox="0 0 24 24"
