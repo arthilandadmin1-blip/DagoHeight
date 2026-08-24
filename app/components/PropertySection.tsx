@@ -30,6 +30,11 @@ export default function PropertySection() {
   const [properties, setProperties] = useState<Property[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // Menyimpan status description yang sedang dibuka
+  const [expandedDescriptions, setExpandedDescriptions] = useState<
+    Record<number, boolean>
+  >({});
+
   // Menyimpan posisi foto untuk setiap property
   const [currentImages, setCurrentImages] = useState<Record<number, number>>(
     {}
@@ -107,20 +112,26 @@ export default function PropertySection() {
   }
 
   return (
-    <section id="properties" className="bg-white px-6 py-24 lg:px-10">
+    <section
+      id="properties"
+      className="relative overflow-hidden bg-[#071512] px-4 py-24 text-white sm:px-6 lg:px-10"
+    >
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(183,145,78,0.12),_transparent_38%)]" />
       <div className="mx-auto max-w-7xl px-6">
 
         {/* Section heading */}
-        <div className="mb-12">
-          <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-estate">
+        <div className="relative mb-12 text-center">
+          <p className="mb-3 text-xs font-medium uppercase tracking-[0.32em] text-[#c7a96b]">
             Our Properties
           </p>
 
-          <h2 className="text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl">
+          <h2 className="text-3xl font-medium tracking-[0.04em] text-[#f2eee5] md:text-4xl">
             Find Your Perfect Home
           </h2>
 
-          <p className="mt-4 max-w-2xl text-lg text-gray-500">
+          <div className="mx-auto mt-5 h-px w-12 bg-[#b89555]" />
+
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/55">
             Discover our selection of quality properties in Itaewon Village,
             Tangerang.
           </p>
@@ -128,13 +139,13 @@ export default function PropertySection() {
 
         {/* Properties */}
         {properties.length === 0 ? (
-          <div className="rounded-2xl border border-gray-200 p-10 text-center">
-            <p className="text-gray-500">
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-10 text-center">
+            <p className="text-white/50">
               No properties available yet.
             </p>
           </div>
         ) : (
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="relative grid items-stretch gap-4 md:grid-cols-2 lg:grid-cols-3">
 
             {properties.map((property) => {
               const images = property.property_images || [];
@@ -146,31 +157,39 @@ export default function PropertySection() {
               return (
                 <div
                   key={property.id}
-                  className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                  className="group flex h-full min-h-[570px] flex-col overflow-hidden rounded-xl border border-white/[0.07] bg-[#0b1d19] shadow-[0_18px_45px_rgba(0,0,0,0.25)] transition duration-500 hover:-translate-y-1 hover:border-[#b89555]/40 hover:shadow-[0_22px_55px_rgba(0,0,0,0.4)]"
                 >
 
                   {/* ========================================= */}
                   {/* IMAGE CAROUSEL */}
                   {/* ========================================= */}
 
-                  <div className="relative h-56 overflow-hidden bg-gray-100">
+                  <div className="relative h-72 shrink-0 overflow-hidden bg-[#10231e]">
 
                     {currentImage ? (
                       <img
                         src={currentImage}
                         alt={property.name}
-                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                        className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
                       />
                     ) : (
-                      <div className="flex h-full items-center justify-center text-gray-400">
+                      <div className="flex h-full items-center justify-center text-white/35">
                         Property Image
                       </div>
                     )}
 
                     {/* Featured */}
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#071512]/90 via-transparent to-black/10" />
+
                     {property.featured && (
-                      <span className="absolute left-4 top-4 z-10 rounded-full bg-white/95 px-3 py-1 text-xs font-medium text-estate">
+                      <span className="absolute left-4 top-4 z-10 rounded-full border border-[#d2b676]/40 bg-[#071512]/80 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-[#e0c98f] backdrop-blur-md">
                         Featured
+                      </span>
+                    )}
+
+                    {property.status && (
+                      <span className="absolute right-4 top-4 z-10 rounded-full border border-white/15 bg-black/55 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-white backdrop-blur-md">
+                        {property.status}
                       </span>
                     )}
 
@@ -182,7 +201,7 @@ export default function PropertySection() {
                           e.stopPropagation();
                           previousImage(property.id, images.length);
                         }}
-                        className="absolute left-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-md transition hover:bg-white"
+                        className="absolute left-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/35 text-white backdrop-blur-md transition hover:bg-black/60"
                         aria-label="Previous image"
                       >
                         ←
@@ -197,7 +216,7 @@ export default function PropertySection() {
                           e.stopPropagation();
                           nextImage(property.id, images.length);
                         }}
-                        className="absolute right-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-md transition hover:bg-white"
+                        className="absolute right-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/35 text-white backdrop-blur-md transition hover:bg-black/60"
                         aria-label="Next image"
                       >
                         →
@@ -243,28 +262,54 @@ export default function PropertySection() {
                   {/* PROPERTY INFORMATION */}
                   {/* ========================================= */}
 
-                  <div className="p-6">
+                  <div className="flex flex-1 flex-col p-6">
 
-                    <p className="mb-2 text-sm text-gray-500">
+                    <p className="mb-2 text-xs uppercase tracking-[0.18em] text-[#c7a96b]">
                       {property.location}
                     </p>
 
-                    <h3 className="text-xl font-semibold text-gray-900">
+                    <h3 className="text-xl font-medium tracking-wide text-[#f3efe7]">
                       {property.name}
                     </h3>
 
-                    <p className="mt-3 text-lg font-semibold text-estate">
+                    <p className="mt-3 text-lg font-medium text-[#d6bb7f]">
                       {property.price}
                     </p>
 
                     {property.description && (
-                      <p className="mt-3 line-clamp-2 text-sm leading-6 text-gray-500">
-                        {property.description}
-                      </p>
+                      <div className="mt-3 text-sm leading-6 text-white/55">
+                        <p
+                          className={
+                            expandedDescriptions[property.id]
+                              ? ""
+                              : "line-clamp-2"
+                          }
+                        >
+                          {property.description}
+                        </p>
+
+                        {property.description.length > 110 && (
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setExpandedDescriptions((prev) => ({
+                                ...prev,
+                                [property.id]: !prev[property.id],
+                              }))
+                            }
+                            className="mt-1 text-xs font-medium text-[#d6bb7f] transition hover:text-[#efd79e]"
+                            aria-expanded={!!expandedDescriptions[property.id]}
+                          >
+                            {expandedDescriptions[property.id]
+                              ? "Show less"
+                              : "Read more"}
+                          </button>
+                        )}
+                      </div>
                     )}
 
                     {/* Property details */}
-                    <div className="mt-5 flex flex-wrap gap-3 text-xs text-gray-500">
+                    <div className="mb-6 mt-5 flex flex-wrap gap-x-4 gap-y-2 border-t border-white/[0.08] pt-4 text-xs text-white/50">
 
                       {property.land_area && (
                         <span>Land {property.land_area}</span>
@@ -292,7 +337,7 @@ export default function PropertySection() {
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-6 block rounded-xl bg-estate px-5 py-3 text-center text-sm font-medium text-white transition hover:opacity-90"
+                        className="mt-auto block rounded-lg border border-[#b89555] bg-[#b89555] px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.14em] text-[#071512] transition hover:bg-[#d0b474]"
                       >
                         Hubungi via WhatsApp
                       </a>

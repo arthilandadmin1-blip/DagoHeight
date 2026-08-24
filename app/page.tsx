@@ -18,6 +18,14 @@ function ArrowRight() {
   );
 }
 
+function GoldSectionDivider() {
+  return (
+    <div aria-hidden="true" className="bg-[#071511] px-6 lg:px-10">
+      <div className="mx-auto h-px max-w-7xl bg-gradient-to-r from-transparent via-[#C7A76A]/80 to-transparent" />
+    </div>
+  );
+}
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -288,158 +296,637 @@ export default function Home() {
 </div>
 </section>
 
-     <PropertySection />  
+<GoldSectionDivider />
+
+     <PropertySection />
+
+<GoldSectionDivider />
 
       {/* INTERIOR SHOWCASE */}
-      <section className="py-24 px-6 lg:px-10">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
-            <div>
-              <p className="brass-line inline-block text-brass text-sm tracking-[0.2em] uppercase mb-6 pb-3 font-medium">Detail Interior</p>
-              <h2 className="font-display text-4xl lg:text-5xl text-ink max-w-xl leading-tight">Belum di isi kata katanya</h2>
-            </div>
-            <p className="text-stone leading-relaxed max-w-sm">ini placeholder buat deskripsi interior nya</p>
-          </div>
+<section className="relative overflow-hidden bg-[#071511] px-6 py-20 lg:px-10 lg:py-28">
+  {/* Subtle background glow */}
+  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(167,132,74,0.12),_transparent_42%)]" />
 
-          <div className="grid lg:grid-cols-12 gap-4 lg:gap-5">
-            <div className="lg:col-span-7 lg:row-span-2 relative rounded-2xl overflow-hidden group h-[420px] lg:h-full">
-              <img src="/image/Villa Besar_4 (1).png" alt="swimming pool" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/0 to-transparent" />
-              <div className="absolute bottom-0 left-0 p-8">
-                <p className="text-brass-light text-xs tracking-[0.2em] uppercase mb-2">01 — Shophouses</p>
-                <p className="font-display text-2xl text-paper">ini placeholder buat pool blm tau mau taro apa</p>
-              </div>
-            </div>
+  <div className="relative mx-auto max-w-7xl">
+    {/* Section heading */}
+    <div className="mb-12 text-center lg:mb-16">
+      <p className="mb-4 text-xs font-medium uppercase tracking-[0.35em] text-[#d3c5a5]">
+        Detail Interior
+      </p>
 
-            <div className="lg:col-span-5 relative rounded-2xl overflow-hidden group h-[200px] lg:h-auto">
-              <img src="/image/Villa Besar_6 (1).png" alt="living room" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/0 to-transparent" />
-              <div className="absolute bottom-0 left-0 p-6">
-                <p className="text-brass-light text-xs tracking-[0.2em] uppercase mb-1">02 — office</p>
-                <p className="font-display text-lg text-paper">ini placeholder buat living room blm tau mau taro apa</p>
-              </div>
-            </div>
+      <h2 className="font-display text-3xl text-[#f4efe5] sm:text-4xl lg:text-5xl">
+        Crafted for Elevated Living
+      </h2>
 
-            <div className="lg:col-span-5 relative rounded-2xl overflow-hidden group h-[200px] lg:h-auto">
-              <img src="/image/Villa Besar_3 (2).png" alt="backyard" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/0 to-transparent" />
-              <div className="absolute bottom-0 left-0 p-6">
-                <p className="text-brass-light text-xs tracking-[0.2em] uppercase mb-1">03 — semi outdoor spa</p>
-                <p className="font-display text-lg text-paper">ini placeholder buat backyard spa, gk tau mau taro apa</p>
-              </div>
-            </div>
-          </div>
+      <div className="mx-auto mt-6 h-px w-16 bg-[#9b8152]" />
+    </div>
 
-          <div className="flex justify-center mt-12">
-            <a href="#properti" className="inline-flex items-center gap-2 text-sm font-medium text-ink border border-ink/20 rounded-full px-6 py-3 hover:border-estate hover:text-estate transition-colors">
-              Lihat Galeri Lengkap <ArrowRight />
-            </a>
+    {/* Interior cards */}
+    <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
+      {/* Private Pool */}
+      <article className="group relative h-[420px] overflow-hidden rounded-lg border border-white/10 bg-[#0b1814]">
+        <img
+          src="/image/Villa Besar_4 (1).png"
+          alt="Private swimming pool"
+          className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-t from-[#06100d] via-transparent to-black/10" />
+
+        <div className="absolute inset-x-0 bottom-0 p-5 lg:p-6">
+          <p className="text-xs font-medium uppercase tracking-[0.22em] text-[#eee5d3]">
+            Private Pool
+          </p>
+
+          <div className="mt-4 h-px w-full bg-white/20">
+            <div className="h-px w-12 bg-[#b69a64] transition-all duration-500 group-hover:w-full" />
           </div>
         </div>
-      </section>
+      </article>
+
+      {/* Living Area */}
+      <article className="group relative h-[420px] overflow-hidden rounded-lg border border-white/10 bg-[#0b1814]">
+        <img
+          src="/image/Villa Besar_6 (1).png"
+          alt="Elegant living area"
+          className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-t from-[#06100d] via-transparent to-black/10" />
+
+        <div className="absolute inset-x-0 bottom-0 p-5 lg:p-6">
+          <p className="text-xs font-medium uppercase tracking-[0.22em] text-[#eee5d3]">
+            Living Area
+          </p>
+
+          <div className="mt-4 h-px w-full bg-white/20">
+            <div className="h-px w-12 bg-[#b69a64] transition-all duration-500 group-hover:w-full" />
+          </div>
+        </div>
+      </article>
+
+      {/* Semi-Outdoor Spa */}
+      <article className="group relative h-[420px] overflow-hidden rounded-lg border border-white/10 bg-[#0b1814]">
+        <img
+          src="/image/Villa Besar_3 (2).png"
+          alt="Semi-outdoor spa"
+          className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-t from-[#06100d] via-transparent to-black/10" />
+
+        <div className="absolute inset-x-0 bottom-0 p-5 lg:p-6">
+          <p className="text-xs font-medium uppercase tracking-[0.22em] text-[#eee5d3]">
+            Semi-Outdoor Spa
+          </p>
+
+          <div className="mt-4 h-px w-full bg-white/20">
+            <div className="h-px w-12 bg-[#b69a64] transition-all duration-500 group-hover:w-full" />
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<GoldSectionDivider />
 
       {/* WHY CHOOSE US */}
-      <section id="tentang" className="py-20 px-6 lg:px-10 bg-ink text-paper">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-brass text-sm tracking-[0.2em] uppercase mb-6 font-medium">Kenapa Arthiland</p>
-          <h2 className="font-display text-4xl mb-14 max-w-xl">Membeli rumah seharusnya terasa tenang, bukan penuh keraguan</h2>
+<section
+  id="tentang"
+  className="bg-[#071611] px-6 py-16 text-[#C7A76A] lg:px-10"
+>
+  <div className="mx-auto max-w-7xl">
+    {/* Section title */}
+    <div className="mb-12 text-center">
+      <p className="text-xs font-medium uppercase tracking-[0.35em]">
+        Kenapa Arthiland
+      </p>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-            <div>
-              <div className="w-11 h-11 rounded-full border border-brass/50 flex items-center justify-center mb-5">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D9C4A0" strokeWidth="1.8"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" /></svg>
-              </div>
-              <h3 className="font-display text-lg mb-2">Properti terverifikasi</h3>
-              <p className="text-paper/60 text-sm leading-relaxed">Setiap listing melewati verifikasi legalitas sebelum dipublikasikan.</p>
-            </div>
-            <div>
-              <div className="w-11 h-11 rounded-full border border-brass/50 flex items-center justify-center mb-5">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D9C4A0" strokeWidth="1.8"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3.5 2" /></svg>
-              </div>
-              <h3 className="font-display text-lg mb-2">Lokasi strategis</h3>
-              <p className="text-paper/60 text-sm leading-relaxed">Fokus di kawasan berkembang sekitar Tangerang dengan akses tol dan fasilitas lengkap.</p>
-            </div>
-            <div>
-              <div className="w-11 h-11 rounded-full border border-brass/50 flex items-center justify-center mb-5">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D9C4A0" strokeWidth="1.8"><circle cx="12" cy="8" r="4" /><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" /></svg>
-              </div>
-              <h3 className="font-display text-lg mb-2">Tim sales profesional</h3>
-              <p className="text-paper/60 text-sm leading-relaxed">Didampingi agen berpengalaman yang memahami tiap kawasan secara mendalam.</p>
-            </div>
-            <div>
-              <div className="w-11 h-11 rounded-full border border-brass/50 flex items-center justify-center mb-5">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D9C4A0" strokeWidth="1.8"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" /></svg>
-              </div>
-              <h3 className="font-display text-lg mb-2">Kontak WhatsApp langsung</h3>
-              <p className="text-paper/60 text-sm leading-relaxed">Tanya ketersediaan dan jadwalkan survei tanpa proses berbelit.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <div className="mx-auto mt-4 h-px w-10 bg-[#C7A76A]" />
+    </div>
+
+    {/* Features */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Item 1 */}
+      <div className="flex flex-col items-center px-6 py-8 text-center lg:border-r lg:border-[#C7A76A]/30">
+        <svg
+          width="48"
+          height="48"
+          viewBox="0 0 64 64"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.7"
+          className="mb-6"
+        >
+          <rect x="18" y="27" width="28" height="27" rx="2" />
+          <path d="M23 27v-8a9 9 0 0118 0v8" />
+          <circle cx="32" cy="39" r="3" />
+          <path d="M32 42v6" />
+        </svg>
+
+        <h3 className="text-[11px] font-medium uppercase tracking-[0.12em]">
+          Properti Terverifikasi
+        </h3>
+
+        <p className="mt-3 max-w-[220px] text-xs leading-relaxed text-white/55">
+          Setiap properti melalui proses verifikasi legalitas.
+        </p>
+      </div>
+
+      {/* Item 2 */}
+      <div className="flex flex-col items-center border-t border-[#C7A76A]/20 px-6 py-8 text-center sm:border-l sm:border-t-0 lg:border-l-0 lg:border-r lg:border-[#C7A76A]/30">
+        <svg
+          width="48"
+          height="48"
+          viewBox="0 0 64 64"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.7"
+          className="mb-6"
+        >
+          <path d="M31 54C18 46 17 31 23 22c6-9 17-11 29-12-1 15-4 26-13 32-5 3-11 3-16 1" />
+          <path d="M16 50c8-12 17-21 30-31" />
+          <path d="M31 32c-7-1-12-4-15-9 9-1 16 2 19 6" />
+        </svg>
+
+        <h3 className="text-[11px] font-medium uppercase tracking-[0.12em]">
+          Lokasi Strategis
+        </h3>
+
+        <p className="mt-3 max-w-[220px] text-xs leading-relaxed text-white/55">
+          Berada di kawasan potensial dengan akses yang mudah.
+        </p>
+      </div>
+
+      {/* Item 3 */}
+      <div className="flex flex-col items-center border-t border-[#C7A76A]/20 px-6 py-8 text-center sm:border-r sm:border-t lg:border-r lg:border-t-0 lg:border-[#C7A76A]/30">
+        <svg
+          width="48"
+          height="48"
+          viewBox="0 0 64 64"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.7"
+          className="mb-6"
+        >
+          <path d="M32 7l18 7v14c0 13-7 22-18 29-11-7-18-16-18-29V14l18-7z" />
+          <path d="M23 31l6 6 13-14" />
+        </svg>
+
+        <h3 className="text-[11px] font-medium uppercase tracking-[0.12em]">
+          Pendampingan Profesional
+        </h3>
+
+        <p className="mt-3 max-w-[220px] text-xs leading-relaxed text-white/55">
+          Didampingi tim berpengalaman dari konsultasi hingga transaksi.
+        </p>
+      </div>
+
+      {/* Item 4 */}
+      <div className="flex flex-col items-center border-t border-[#C7A76A]/20 px-6 py-8 text-center sm:border-t-0">
+        <svg
+          width="48"
+          height="48"
+          viewBox="0 0 64 64"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.7"
+          className="mb-6"
+        >
+          <path d="M8 21h48L32 55 8 21z" />
+          <path d="M8 21l10-13h28l10 13" />
+          <path d="M18 8l6 13 8-13 8 13 6-13" />
+          <path d="M24 21l8 34 8-34" />
+        </svg>
+
+        <h3 className="text-[11px] font-medium uppercase tracking-[0.12em]">
+          Nilai Investasi Tinggi
+        </h3>
+
+        <p className="mt-3 max-w-[220px] text-xs leading-relaxed text-white/55">
+          Properti pilihan dengan potensi pertumbuhan jangka panjang.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<GoldSectionDivider />
 
       {/* LOKASI */}
-      <section id="lokasi" className="py-24 px-6 lg:px-10 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <p className="brass-line inline-block text-brass text-sm tracking-[0.2em] uppercase mb-6 pb-3 font-medium">Kawasan Kami</p>
-          <h2 className="font-display text-4xl text-ink mb-14 max-w-xl">Kawasan strategis di sekitar Tangerang</h2>
+<section
+  id="lokasi"
+  className="relative overflow-hidden bg-[#071712] px-6 py-24 text-[#F1EBDD] lg:px-10 lg:py-32"
+>
+  {/* Ambient glow */}
+  <div className="pointer-events-none absolute -left-32 top-0 h-96 w-96 rounded-full bg-[#A8793F]/10 blur-[120px]" />
+  <div className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-[#A8793F]/10 blur-[120px]" />
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              ["BSD City", "Kawasan modern dengan akses tol dan fasilitas lengkap."],
-              ["Alam Sutera", "Dekat pusat bisnis, sekolah, dan pusat perbelanjaan."],
-              ["Gading Serpong", "Hunian keluarga dengan lingkungan asri dan nyaman."],
-              ["Bintaro", "Akses mudah ke Jakarta dengan suasana tenang."],
-            ].map(([title, description]) => (
-              <div key={title} className="rounded-2xl border border-ink/10 p-6 hover:border-estate transition-colors">
-                <h3 className="font-display text-lg text-ink mb-2">{title}</h3>
-                <p className="text-stone text-sm leading-relaxed">{description}</p>
+  <div className="relative mx-auto max-w-7xl">
+    <div className="grid items-center gap-14 lg:grid-cols-[0.85fr_1.4fr] lg:gap-20">
+      
+      {/* Left content */}
+      <div>
+        <p className="mb-5 text-xs font-medium uppercase tracking-[0.28em] text-[#B98A4A]">
+          Prime Location
+        </p>
+
+        <h2 className="font-display max-w-md text-4xl leading-[1.08] text-[#F1EBDD] sm:text-5xl lg:text-6xl">
+          The Best of
+          <br />
+          Tangerang
+        </h2>
+
+        <div className="my-7 h-px w-12 bg-[#B98A4A]" />
+
+        <p className="max-w-md text-sm leading-7 text-[#B9B8AE] sm:text-base">
+          Berada di kawasan strategis dengan akses mudah menuju pusat bisnis,
+          pendidikan, hiburan, dan berbagai destinasi utama Tangerang.
+        </p>
+
+        {/* Location indicators */}
+        <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-9 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
+          {[
+            {
+              time: "10",
+              unit: "MIN",
+              title: "BSD City",
+              description: "Pusat bisnis & lifestyle",
+            },
+            {
+              time: "15",
+              unit: "MIN",
+              title: "Alam Sutera",
+              description: "Mall & pendidikan",
+            },
+            {
+              time: "20",
+              unit: "MIN",
+              title: "Gading Serpong",
+              description: "Kuliner & hiburan",
+            },
+            {
+              time: "25",
+              unit: "MIN",
+              title: "Bintaro",
+              description: "Akses menuju Jakarta",
+            },
+          ].map((location) => (
+            <div key={location.title} className="group">
+              <div className="mb-4 flex h-[72px] w-[72px] flex-col items-center justify-center rounded-full border border-[#B98A4A]/70 transition-all duration-500 group-hover:border-[#D6AF72] group-hover:bg-[#B98A4A]/10">
+                <span className="font-display text-2xl leading-none text-[#F1EBDD]">
+                  {location.time}
+                </span>
+                <span className="mt-1 text-[8px] tracking-[0.2em] text-[#B98A4A]">
+                  {location.unit}
+                </span>
               </div>
-            ))}
+
+              <h3 className="mb-1 text-[10px] font-medium uppercase tracking-[0.15em] text-[#F1EBDD]">
+                {location.title}
+              </h3>
+
+              <p className="max-w-[110px] text-[9px] uppercase leading-4 tracking-[0.08em] text-[#898E87]">
+                {location.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Right image */}
+      <div className="relative">
+        <div className="absolute -inset-3 rounded-[28px] border border-[#B98A4A]/10" />
+
+        <div className="group relative min-h-[420px] overflow-hidden rounded-[24px] bg-[#10211B] sm:min-h-[520px]">
+          <img
+            src="/image/Environment_01.png"
+            alt="Kawasan strategis Tangerang"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]"
+          />
+
+          {/* Dark luxury overlays */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071712]/45 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#071712]/75 via-transparent to-[#071712]/10" />
+
+          {/* Floating label */}
+          <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between border-t border-white/20 pt-5 sm:bottom-8 sm:left-8 sm:right-8">
+            <div>
+              <p className="mb-2 text-[9px] uppercase tracking-[0.28em] text-[#D1A665]">
+                Connected Living
+              </p>
+              <p className="font-display text-xl text-white sm:text-2xl">
+                At the Heart of Tangerang
+              </p>
+            </div>
+
+            <div className="hidden h-10 w-10 items-center justify-center rounded-full border border-[#D1A665]/70 text-[#D1A665] sm:flex">
+              <span className="text-lg">↗</span>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
 
+    {/* Bottom feature line */}
+    <div className="mt-20 grid grid-cols-2 border-t border-[#B98A4A]/20 pt-9 md:grid-cols-4">
+      {[
+        ["01", "Akses Strategis"],
+        ["02", "Kawasan Berkembang"],
+        ["03", "Fasilitas Lengkap"],
+        ["04", "Nilai Investasi Tinggi"],
+      ].map(([number, title], index) => (
+        <div
+          key={title}
+          className={`px-4 py-4 text-center ${
+            index !== 0 ? "border-l border-[#B98A4A]/20" : ""
+          }`}
+        >
+          <span className="mb-3 block font-display text-lg text-[#B98A4A]">
+            {number}
+          </span>
+          <p className="text-[9px] uppercase tracking-[0.17em] text-[#C8C5B9] sm:text-[10px]">
+            {title}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<GoldSectionDivider />
       {/* KONTAK */}
-      <section id="kontak" className="py-24 px-6 lg:px-10 bg-paper">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14">
+      {/* KONTAK */}
+<section
+  id="kontak"
+  className="relative overflow-hidden bg-[#0A1A15] px-6 py-24 text-[#F1EBDD] lg:px-10 lg:py-32"
+>
+  {/* Ambient glow */}
+  <div className="pointer-events-none absolute -left-32 bottom-0 h-96 w-96 rounded-full bg-[#A8793F]/10 blur-[120px]" />
+  <div className="pointer-events-none absolute -right-32 top-0 h-96 w-96 rounded-full bg-[#A8793F]/10 blur-[120px]" />
+
+  <div className="relative mx-auto max-w-7xl">
+    {/* Heading */}
+    <div className="mb-14 max-w-2xl">
+      <p className="mb-5 text-xs font-medium uppercase tracking-[0.28em] text-[#B98A4A]">
+        Private Consultation
+      </p>
+
+      <h2 className="font-display text-4xl leading-[1.1] text-[#F1EBDD] sm:text-5xl lg:text-6xl">
+        Your Future Home
+        <br />
+        Begins Here
+      </h2>
+
+      <div className="mt-7 h-px w-12 bg-[#B98A4A]" />
+    </div>
+
+    <div className="grid overflow-hidden rounded-[26px] border border-[#B98A4A]/20 bg-[#0D201A] lg:grid-cols-[0.8fr_1.2fr]">
+      {/* Contact information */}
+      <div className="relative flex flex-col justify-between p-8 sm:p-12 lg:p-14">
+        <div>
+          <p className="mb-8 max-w-md text-sm leading-7 text-[#AAAFA7] sm:text-base">
+            Tim sales kami siap membantu Anda menemukan properti yang sesuai
+            dengan kebutuhan, gaya hidup, dan rencana investasi Anda.
+          </p>
+
+          <div className="space-y-7">
+            {/* Address */}
+            <div className="group flex gap-4">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#B98A4A]/50 text-[#C89C5D] transition-colors group-hover:bg-[#B98A4A]/10">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  className="h-4 w-4"
+                >
+                  <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" />
+                  <circle cx="12" cy="10" r="2.5" />
+                </svg>
+              </div>
+
+              <div>
+                <p className="mb-1 text-[9px] uppercase tracking-[0.22em] text-[#B98A4A]">
+                  Sales Gallery
+                </p>
+                <p className="text-sm leading-6 text-[#E2DED2]">
+                  Dago Heights, Ciburial, Bandung
+                </p>
+              </div>
+            </div>
+
+            {/* Email */}
+            <div className="group flex gap-4">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#B98A4A]/50 text-[#C89C5D] transition-colors group-hover:bg-[#B98A4A]/10">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  className="h-4 w-4"
+                >
+                  <rect x="3" y="5" width="18" height="14" rx="1" />
+                  <path d="m3 7 9 6 9-6" />
+                </svg>
+              </div>
+
+              <div>
+                <p className="mb-1 text-[9px] uppercase tracking-[0.22em] text-[#B98A4A]">
+                  Email
+                </p>
+                <a
+                  href="mailto:hello@tanahaya.id"
+                  className="text-sm text-[#E2DED2] transition-colors hover:text-[#D1A665]"
+                >
+                  info@arthiland.id
+                </a>
+              </div>
+            </div>
+
+            {/* Phone */}
+            <div className="group flex gap-4">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#B98A4A]/50 text-[#C89C5D] transition-colors group-hover:bg-[#B98A4A]/10">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  className="h-4 w-4"
+                >
+                  <path d="M7 3H4a1 1 0 0 0-1 1c0 9.39 7.61 17 17 17a1 1 0 0 0 1-1v-3l-4-2-2 2c-4-1.5-6.5-4-8-8l2-2-2-4Z" />
+                </svg>
+              </div>
+
+              <div>
+                <p className="mb-1 text-[9px] uppercase tracking-[0.22em] text-[#B98A4A]">
+                  Contact
+                </p>
+                <a
+                  href={WHATSAPP_BASE}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[#E2DED2] transition-colors hover:text-[#D1A665]"
+                >
+                  +62 818-1880-8111
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* WhatsApp button */}
+        <a
+          href={WHATSAPP_BASE}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group mt-12 inline-flex w-fit items-center gap-5 border border-[#B98A4A]/70 px-6 py-4 text-[10px] font-medium uppercase tracking-[0.18em] text-[#E8DDC8] transition-all duration-300 hover:bg-[#B98A4A] hover:text-[#071712]"
+        >
+          Schedule a Private Visit
+
+          <span className="text-base transition-transform duration-300 group-hover:translate-x-1">
+            →
+          </span>
+        </a>
+
+        <p className="mt-5 text-[9px] uppercase tracking-[0.14em] text-[#69736D]">
+          By appointment only
+        </p>
+      </div>
+
+      {/* Google Maps */}
+      <div className="relative min-h-[420px] border-t border-[#B98A4A]/20 lg:min-h-[600px] lg:border-l lg:border-t-0">
+        <iframe
+          src="https://www.google.com/maps?q=-6.867278,107.652778&output=embed"
+          className="absolute inset-0 h-full w-full grayscale-[30%] contrast-[1.05]"
+          style={{ border: 0 }}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Lokasi Arthiland"
+        />
+
+        {/* Map overlays */}
+        <div className="pointer-events-none absolute inset-0 bg-[#071712]/10 mix-blend-multiply" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#0D201A]/40 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0D201A]/80 to-transparent" />
+
+        {/* Map label */}
+        <div className="pointer-events-none absolute bottom-7 left-7 right-7 flex items-end justify-between sm:bottom-9 sm:left-9 sm:right-9">
           <div>
-            <p className="brass-line inline-block text-brass text-sm tracking-[0.2em] uppercase mb-6 pb-3 font-medium">Hubungi Kami</p>
-            <h2 className="font-display text-4xl text-ink mb-6">Mari bicarakan hunian impian Anda</h2>
-            <p className="text-stone leading-relaxed mb-8 max-w-md">Tim sales kami siap membantu Anda menemukan properti yang sesuai kebutuhan.</p>
-            <ul className="space-y-3 text-sm text-ink/80">
-              <li>BSD City, Tangerang Selatan</li>
-              <li>hello@tanahaya.id</li>
-              <li>+62 812-3456-7890</li>
-            </ul>
-            <a href={WHATSAPP_BASE} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-8 bg-estate hover:bg-estate-dark text-white font-medium px-6 py-3 rounded-full transition-colors">
-              Hubungi via WhatsApp
-            </a>
+            <p className="mb-2 text-[9px] uppercase tracking-[0.25em] text-[#D3A768]">
+              Our Location
+            </p>
+            <p className="font-display text-xl text-white sm:text-2xl">
+              Visit Our Sales Gallery
+            </p>
           </div>
-          <div className="rounded-2xl overflow-hidden border border-ink/10 min-h-[300px]">
-            <iframe
-              src="https://www.google.com/maps?q=-6.867278,107.652778&output=embed"
-              className="w-full h-full min-h-[300px]"
-              style={{ border: 0 }}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Lokasi Arthiland"
-            />
+
+          <div className="hidden h-11 w-11 items-center justify-center rounded-full border border-[#D1A665]/70 text-[#D1A665] sm:flex">
+            ↗
           </div>
         </div>
-      </section>
+      </div>
+    </div>
 
-      {/* CTA */}
-      <section className="py-24 px-6 lg:px-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-display text-4xl lg:text-5xl text-ink mb-6 leading-tight">Sedang mencari rumah<br />di Tangerang?</h2>
-          <p className="text-stone text-lg mb-10 max-w-lg mx-auto">Jelajahi ratusan properti pilihan atau hubungi tim kami langsung untuk konsultasi gratis.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#properti" className="bg-estate hover:bg-estate-dark text-white font-medium px-8 py-4 rounded-full transition-colors">Lihat Semua Properti</a>
-            <a href={WHATSAPP_BASE} className="border border-ink/20 hover:border-estate hover:text-estate text-ink font-medium px-8 py-4 rounded-full transition-colors" target="_blank" rel="noopener noreferrer">Hubungi via WhatsApp</a>
-          </div>
-        </div>
-      </section>
+    {/* Bottom statement */}
+    <div className="mt-16 flex flex-col justify-between gap-6 border-t border-[#B98A4A]/20 pt-8 sm:flex-row sm:items-center">
+      <p className="font-display text-xl text-[#DED6C6] sm:text-2xl">
+        Live exceptionally. Invest meaningfully.
+      </p>
 
+      <p className="text-[9px] uppercase tracking-[0.24em] text-[#B98A4A]">
+        Private Living · Strategic Investment
+      </p>
+    </div>
+  </div>
+</section>
+
+<GoldSectionDivider />
+     {/* CTA */}
+<section className="relative overflow-hidden bg-[#071712] px-6 py-24 lg:px-10 lg:py-32">
+  {/* Decorative glow */}
+  <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#A8793F]/10 blur-[140px]" />
+
+  {/* Decorative lines */}
+  <div className="pointer-events-none absolute left-0 top-1/2 hidden h-px w-[18%] bg-gradient-to-r from-transparent to-[#B98A4A]/40 lg:block" />
+  <div className="pointer-events-none absolute right-0 top-1/2 hidden h-px w-[18%] bg-gradient-to-l from-transparent to-[#B98A4A]/40 lg:block" />
+
+  <div className="relative mx-auto max-w-6xl">
+    <div className="relative overflow-hidden border border-[#B98A4A]/25 bg-[#0A1C16]/90 px-7 py-16 text-center sm:px-12 sm:py-20 lg:px-20 lg:py-24">
+      {/* Corner ornaments */}
+      <div className="absolute left-5 top-5 h-10 w-10 border-l border-t border-[#B98A4A]/50" />
+      <div className="absolute right-5 top-5 h-10 w-10 border-r border-t border-[#B98A4A]/50" />
+      <div className="absolute bottom-5 left-5 h-10 w-10 border-b border-l border-[#B98A4A]/50" />
+      <div className="absolute bottom-5 right-5 h-10 w-10 border-b border-r border-[#B98A4A]/50" />
+
+      {/* Small title */}
+      <p className="mb-5 text-[10px] font-medium uppercase tracking-[0.32em] text-[#B98A4A] sm:text-xs">
+        Find Your Private Address
+      </p>
+
+      <div className="mx-auto mb-7 h-px w-10 bg-[#B98A4A]" />
+
+      {/* Main heading */}
+      <h2 className="font-display mx-auto max-w-3xl text-4xl leading-[1.08] text-[#F1EBDD] sm:text-5xl lg:text-6xl">
+        Temukan Hunian Terbaik
+        <br />
+        di Tangerang
+      </h2>
+
+      {/* Supporting copy */}
+      <p className="mx-auto mb-11 mt-7 max-w-xl text-sm leading-7 text-[#A9AEA7] sm:text-base">
+        Jelajahi properti pilihan atau konsultasikan kebutuhan Anda bersama tim
+        kami untuk menemukan hunian dan investasi yang tepat.
+      </p>
+
+      {/* CTA buttons */}
+      <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href="#properti"
+          className="group inline-flex min-w-[220px] items-center justify-center gap-5 bg-[#B98A4A] px-7 py-4 text-[10px] font-semibold uppercase tracking-[0.17em] text-[#071712] transition-all duration-300 hover:bg-[#D0A766]"
+        >
+          Lihat Semua Properti
+
+          <span className="text-base transition-transform duration-300 group-hover:translate-x-1">
+            →
+          </span>
+        </a>
+
+        <a
+          href={WHATSAPP_BASE}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group inline-flex min-w-[220px] items-center justify-center gap-5 border border-[#B98A4A]/70 px-7 py-4 text-[10px] font-semibold uppercase tracking-[0.17em] text-[#E8DDC8] transition-all duration-300 hover:border-[#B98A4A] hover:bg-[#B98A4A]/10"
+        >
+          Hubungi WhatsApp
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            className="h-4 w-4 text-[#C89C5D]"
+          >
+            <path d="M20.5 11.5a8.5 8.5 0 0 1-12.54 7.47L3 20.5l1.54-4.82A8.5 8.5 0 1 1 20.5 11.5Z" />
+            <path d="M8.5 8.2c.4 2.9 2.4 4.9 5.3 5.3" />
+          </svg>
+        </a>
+      </div>
+
+      {/* Trust indicator */}
+      <div className="mt-10 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[9px] uppercase tracking-[0.16em] text-[#737D76]">
+        <span>Konsultasi Gratis</span>
+        <span className="h-1 w-1 rounded-full bg-[#B98A4A]" />
+        <span>Respons Cepat</span>
+        <span className="h-1 w-1 rounded-full bg-[#B98A4A]" />
+        <span>Pilihan Terbaik</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<GoldSectionDivider />
       {/* FOOTER */}
       <footer className="bg-ink text-paper/70 pt-16 pb-8 px-6 lg:px-10">
         <div className="max-w-7xl mx-auto">
