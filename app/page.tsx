@@ -535,7 +535,7 @@ export default function Home() {
         <h2 className="font-display max-w-md text-4xl leading-[1.08] text-[#F1EBDD] sm:text-5xl lg:text-6xl">
           The Best of
           <br />
-          Tangerang
+          Bandung
         </h2>
 
         <div className="my-7 h-px w-12 bg-[#B98A4A]" />
@@ -548,50 +548,54 @@ export default function Home() {
         {/* Location indicators */}
         <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-9 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
           {[
-            {
-              time: "10",
-              unit: "MIN",
-              title: "BSD City",
-              description: "Pusat bisnis & lifestyle",
-            },
-            {
-              time: "15",
-              unit: "MIN",
-              title: "Alam Sutera",
-              description: "Mall & pendidikan",
-            },
-            {
-              time: "20",
-              unit: "MIN",
-              title: "Gading Serpong",
-              description: "Kuliner & hiburan",
-            },
-            {
-              time: "25",
-              unit: "MIN",
-              title: "Bintaro",
-              description: "Akses menuju Jakarta",
-            },
-          ].map((location) => (
-            <div key={location.title} className="group">
-              <div className="mb-4 flex h-[72px] w-[72px] flex-col items-center justify-center rounded-full border border-[#B98A4A]/70 transition-all duration-500 group-hover:border-[#D6AF72] group-hover:bg-[#B98A4A]/10">
-                <span className="font-display text-2xl leading-none text-[#F1EBDD]">
-                  {location.time}
-                </span>
-                <span className="mt-1 text-[8px] tracking-[0.2em] text-[#B98A4A]">
-                  {location.unit}
-                </span>
-              </div>
+  {
+    time: "5",
+    unit: "MIN",
+    title: "Dago Pakar",
+    description: "Kuliner & lifestyle",
+  },
+  {
+    time: "10",
+    unit: "MIN",
+    title: "Tahura",
+    description: "Alam & Rekreasi",
+  },
+  {
+    time: "20",
+    unit: "MIN",
+    title: "ITB",
+    description: "Pendidikan",
+  },
+  {
+    time: "25",
+    unit: "MIN",
+    title: "WHOOSH",
+    description: "Akses cepat",
+  },
+].map((location) => (
+  <div
+    key={location.title}
+    className="group flex flex-col items-center text-center"
+  >
+    <div className="mb-4 flex h-[72px] w-[72px] flex-col items-center justify-center rounded-full border border-[#B98A4A]/70 transition-all duration-500 group-hover:border-[#D6AF72] group-hover:bg-[#B98A4A]/10">
+      <span className="font-display text-2xl leading-none text-[#F1EBDD]">
+        {location.time}
+      </span>
 
-              <h3 className="mb-1 text-[10px] font-medium uppercase tracking-[0.15em] text-[#F1EBDD]">
-                {location.title}
-              </h3>
+      <span className="mt-1 text-[8px] tracking-[0.2em] text-[#B98A4A]">
+        {location.unit}
+      </span>
+    </div>
 
-              <p className="max-w-[110px] text-[9px] uppercase leading-4 tracking-[0.08em] text-[#898E87]">
-                {location.description}
-              </p>
-            </div>
-          ))}
+    <h3 className="mb-1 text-[10px] font-medium uppercase tracking-[0.15em] text-[#F1EBDD]">
+      {location.title}
+    </h3>
+
+    <p className="max-w-[110px] text-[9px] uppercase leading-4 tracking-[0.08em] text-[#898E87]">
+      {location.description}
+    </p>
+  </div>
+))}
         </div>
       </div>
 
@@ -617,7 +621,7 @@ export default function Home() {
                 Connected Living
               </p>
               <p className="font-display text-xl text-white sm:text-2xl">
-                At the Heart of Tangerang
+                At the Heart of Dago
               </p>
             </div>
 
@@ -656,7 +660,6 @@ export default function Home() {
 </section>
 
 <GoldSectionDivider />
-      {/* KONTAK */}
       {/* KONTAK */}
 <section
   id="kontak"
@@ -947,9 +950,9 @@ export default function Home() {
             <div>
               <p className="text-paper text-sm font-medium mb-4">Kontak</p>
               <ul className="text-sm space-y-3">
-                <li>Kelapa Gading, Jakarta Utara</li>
-                <li>hello@tanahaya.id</li>
-                <li>+62 812-3456-7890</li>
+                <li>Dago Heights, Ciburial, Bandung</li>
+                <li>info@arthiland.id</li>
+                <li>+62 818-1880-8111</li>
               </ul>
             </div>
             <div>
