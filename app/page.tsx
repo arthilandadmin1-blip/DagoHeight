@@ -7,7 +7,7 @@ import { useState } from "react";
 
 
 const WHATSAPP_BASE =
-  "https://wa.me/6285759426450?text=Halo%20Arthiland,%20saya%20tertarik%20dengan%20properti%20yang%20ada%20di%20website.";
+  "https://wa.me/6281818808111?text=Halo%20Arthiland,%20saya%20tertarik%20dengan%20properti%20yang%20ada%20di%20website.";
 
 
 function ArrowRight() {
@@ -26,89 +26,267 @@ export default function Home() {
   return (
     <main className="antialiased">
       {/* NAVBAR */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-paper/95 backdrop-blur border-b border-ink/10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
-          <a href="#beranda" className="font-display text-2xl tracking-tight text-ink" onClick={closeMenu}>
-            <img src="/image/logo.png" alt="Arthiland" className="max-h-50 w-auto" />
+<header className="absolute top-0 left-0 right-0 z-50">
+  <div className="max-w-[1440px] mx-auto px-6 lg:px-14 h-24 flex items-center justify-between">
+
+   {/* Logo */}
+<a href="#beranda" onClick={closeMenu}>
+  <img
+    src="/image/logo.png"
+    alt="Arthi Land"
+    className="h-9 lg:h-11 w-auto object-contain"
+  />
+</a>
+    {/* Desktop Navigation */}
+    <nav className="hidden md:flex items-center text-sm text-white/80">
+      {[
+        ["Beranda", "#beranda"],
+        ["Properti", "#properti"],
+        ["Lokasi", "#lokasi"],
+        ["Tentang", "#tentang"],
+        ["Kontak", "#kontak"],
+      ].map(([label, href], index) => (
+        <div key={label} className="flex items-center">
+          {index !== 0 && (
+            <span className="mx-7 h-5 w-px bg-white/20" />
+          )}
+
+          <a
+            href={href}
+            className="tracking-wide hover:text-[#d5af69] transition-colors duration-300"
+          >
+            {label}
           </a>
-
-          <nav className="hidden md:flex items-center gap-10 text-sm text-ink/80">
-            <a href="#beranda" className="hover:text-estate transition-colors">Beranda</a>
-            <a href="#properti" className="hover:text-estate transition-colors">Properti</a>
-            <a href="#lokasi" className="hover:text-estate transition-colors">Lokasi</a>
-            <a href="#tentang" className="hover:text-estate transition-colors">Tentang</a>
-            <a href="#kontak" className="hover:text-estate transition-colors">Kontak</a>
-          </nav>
-
-          <div className="flex items-center gap-4">
-            <a
-              href={WHATSAPP_BASE}
-              className="hidden md:inline-flex items-center gap-2 text-sm font-medium text-ink border border-ink/20 rounded-full px-5 py-2.5 hover:border-estate hover:text-estate transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Hubungi Kami
-            </a>
-            <button
-              id="menuBtn"
-              className="md:hidden text-ink"
-              aria-label="Buka menu"
-              aria-expanded={menuOpen}
-              onClick={() => setMenuOpen((open) => !open)}
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                <path d="M3 6h18M3 12h18M3 18h18" />
-              </svg>
-            </button>
-          </div>
         </div>
+      ))}
+    </nav>
 
-        <nav className={`${menuOpen ? "flex" : "hidden"} md:hidden flex-col gap-1 px-6 pb-6 text-sm text-ink/80 bg-paper border-t border-ink/10`}>
-          <a href="#beranda" className="block py-3 hover:text-estate transition-colors" onClick={closeMenu}>Beranda</a>
-          <a href="#properti" className="block py-3 hover:text-estate transition-colors" onClick={closeMenu}>Properti</a>
-          <a href="#lokasi" className="block py-3 hover:text-estate transition-colors" onClick={closeMenu}>Lokasi</a>
-          <a href="#tentang" className="block py-3 hover:text-estate transition-colors" onClick={closeMenu}>Tentang</a>
-          <a href="#kontak" className="block py-3 hover:text-estate transition-colors" onClick={closeMenu}>Kontak</a>
-        </nav>
-      </header>
+    {/* CTA */}
+    <div className="flex items-center gap-4">
+      <a
+        href={WHATSAPP_BASE}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="
+          hidden md:inline-flex items-center justify-center
+          min-w-[180px] rounded-full
+          border border-[#c7a261]/80 px-7 py-3
+          text-sm tracking-wide text-[#dfc28d]
+          hover:bg-[#c7a261] hover:text-black
+          transition-all duration-300
+        "
+      >
+        Hubungi Kami
+      </a>
 
-      {/* HERO */}
-      <section id="beranda" className="pt-32 pb-20 px-6 lg:px-10">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
-          <div>
-            <p className="brass-line inline-block text-brass text-sm tracking-[0.2em] uppercase mb-8 pb-3 font-medium">PROPERTI EKSKLUSIF BANDUNG</p>
-            <h1 className="font-display text-5xl lg:text-6xl leading-[1.08] text-ink mb-6">
-              Temukan villa<br />impian Anda di<br /><span className="italic text-estate text-7xl lg:text-8xl">Dago</span>
-            </h1>
-            <p className="text-stone text-lg leading-relaxed mb-10 max-w-md">
-              Hunian eksklusif tiga lantai dengan private pool dan panorama Bandung. Dirancang untuk tempat beristirahat, berkumpul, sekaligus menjadi aset properti bernilai.
-            </p>
+      <button
+        id="menuBtn"
+        className="md:hidden text-white"
+        aria-label="Buka menu"
+        aria-expanded={menuOpen}
+        onClick={() => setMenuOpen((open) => !open)}
+      >
+        {menuOpen ? (
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        ) : (
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path d="M3 7h18M3 12h18M3 17h18" />
+          </svg>
+        )}
+      </button>
+    </div>
+  </div>
 
-            <div className="flex gap-10 mt-12">
-              <div>
-                <p className="font-display text-3xl text-ink">25</p>
-                <p className="text-sm text-stone mt-1">Unit Eksklusif</p>
-              </div>
-              <div>
-                <p className="font-display text-3xl text-ink">3</p>
-                <p className="text-sm text-stone mt-1">Lantai</p>
-              </div>
-              <div>
-                <p className="font-display text-3xl text-ink">1</p>
-                <p className="text-sm text-stone mt-1">Private pool per unit</p>
-              </div>
-            </div>
-          </div>
+  {/* Mobile Navigation */}
+  <nav
+    className={`
+      ${menuOpen ? "flex" : "hidden"}
+      md:hidden mx-5 px-6 py-5 flex-col
+      bg-black/85 backdrop-blur-xl
+      border border-white/10 rounded-2xl
+      text-sm text-white/80 shadow-2xl
+    `}
+  >
+    {[
+      ["Beranda", "#beranda"],
+      ["Properti", "#properti"],
+      ["Lokasi", "#lokasi"],
+      ["Tentang", "#tentang"],
+      ["Kontak", "#kontak"],
+    ].map(([label, href]) => (
+      <a
+        key={label}
+        href={href}
+        onClick={closeMenu}
+        className="py-3 border-b border-white/10 last:border-0 hover:text-[#d5af69]"
+      >
+        {label}
+      </a>
+    ))}
 
-          <div className="relative">
-            <div className="absolute -inset-3 border border-brass/40 rounded-3xl -z-10" />
-            <img src="/image/_Aerial_View.png" alt="DagoHeight" className="w-full rounded-2xl" />
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-5 max-w-[240px] border border-ink/5">
-              <p className="font-display text-lg text-ink leading-snug">DagoHeight</p>
-            </div>
-          </div>
+    <a
+      href={WHATSAPP_BASE}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        mt-5 rounded-full border border-[#c7a261]
+        px-5 py-3 text-center text-[#dfc28d]
+      "
+    >
+      Hubungi Kami
+    </a>
+  </nav>
+</header>
+
+{/* HERO */}
+<section
+  id="beranda"
+  className="
+    relative min-h-[100svh]
+    flex flex-col justify-end
+    overflow-hidden text-white
+  "
+>
+  {/* Background */}
+  <img
+    src="/image/_Aerial_View.png"
+    alt="Panorama Dago Heights"
+    className="absolute inset-0 h-full w-full object-cover object-center"
+  />
+
+  {/* Luxury overlay */}
+  <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/20 to-black/15" />
+  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/55" />
+
+  {/* Main Content */}
+  <div className="relative z-10 flex-1 flex items-center">
+    <div className="max-w-[1440px] w-full mx-auto px-6 lg:px-14 pt-28 pb-48 lg:pb-56">
+      <div className="relative max-w-2xl pl-7 lg:pl-12 border-l border-[#c7a261]/70">
+
+        <p className="mb-5 text-xs lg:text-sm tracking-[0.45em] uppercase text-[#d7b979]">
+          Private Villa Collection
+        </p>
+
+        <h1 className="font-display text-5xl sm:text-6xl lg:text-[76px] leading-[0.95] tracking-[0.12em] text-[#f0d8aa] drop-shadow-lg">
+          DAGO
+          <br />
+          HEIGHTS
+        </h1>
+
+        <div className="my-7 h-px w-20 bg-[#c7a261]" />
+
+        <p className="max-w-sm text-xs sm:text-sm lg:text-base leading-relaxed tracking-[0.3em] uppercase text-white/75">
+          Private living in harmony
+          <br />
+          with nature
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {/* Property Statistics */}
+<div className="absolute bottom-0 left-0 right-0 z-10">
+  <div className="max-w-[1440px] mx-auto px-6 lg:px-14">
+
+    <div className="flex items-center w-fit pb-7 lg:pb-9">
+
+      {/* 25 Unit */}
+      <div className="flex items-center gap-3 lg:gap-4 pr-6 lg:pr-9">
+        <svg
+          className="w-7 lg:w-9 text-[#c7a261]"
+          viewBox="0 0 48 48"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.4"
+        >
+          <path d="M9 42V13l15-8 15 8v29M5 42h38M16 18h5v5h-5zM27 18h5v5h-5zM16 28h5v5h-5zM27 28h5v5h-5zM21 42V32h6v10" />
+        </svg>
+
+        <div>
+          <p className="font-display text-2xl lg:text-3xl leading-none text-[#f0ddbc]">
+            25
+          </p>
+          <p className="mt-1 text-[8px] lg:text-[10px] tracking-[0.25em] uppercase text-white/70">
+            Unit
+          </p>
         </div>
-      </section>
+      </div>
+
+      {/* Separator */}
+      <div className="h-12 lg:h-14 w-px bg-white/25" />
+
+      {/* 3 Lantai */}
+      <div className="flex items-center gap-3 lg:gap-4 px-6 lg:px-9">
+        <svg
+          className="w-7 lg:w-9 text-[#c7a261]"
+          viewBox="0 0 48 48"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.4"
+        >
+          <path d="M24 5 43 15 24 25 5 15 24 5Z" />
+          <path d="m8 23 16 9 16-9M8 31l16 10 16-10" />
+        </svg>
+
+        <div>
+          <p className="font-display text-2xl lg:text-3xl leading-none text-[#f0ddbc]">
+            3
+          </p>
+          <p className="mt-1 text-[8px] lg:text-[10px] tracking-[0.25em] uppercase text-white/70">
+            Lantai
+          </p>
+        </div>
+      </div>
+
+      {/* Separator */}
+      <div className="h-12 lg:h-14 w-px bg-white/25" />
+
+      {/* 1 Private Pool */}
+      <div className="flex items-center gap-3 lg:gap-4 pl-6 lg:pl-9">
+        <svg
+          className="w-7 lg:w-9 text-[#c7a261]"
+          viewBox="0 0 48 48"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.4"
+        >
+          <path d="M20 27V12a7 7 0 0 1 14 0M16 18h18" />
+          <path d="M4 30c4 0 4 3 8 3s4-3 8-3 4 3 8 3 4-3 8-3 4 3 8 3M4 38c4 0 4 3 8 3s4-3 8-3 4 3 8 3 4-3 8-3 4 3 8 3" />
+        </svg>
+
+        <div>
+          <p className="font-display text-2xl lg:text-3xl leading-none text-[#f0ddbc]">
+            1
+          </p>
+          <p className="mt-1 text-[8px] lg:text-[10px] tracking-[0.18em] uppercase whitespace-nowrap text-white/70">
+            Private Pool
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    {/* Bottom gold line */}
+    <div className="h-px w-full bg-[#c7a261]/60" />
+  </div>
+</div>
+</section>
 
      <PropertySection />  
 
