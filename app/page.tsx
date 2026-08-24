@@ -943,7 +943,7 @@ export default function Home() {
               <p className="text-paper text-sm font-medium mb-4">Navigasi</p>
               <ul className="text-sm space-y-3">
                 <li><a href="#beranda" className="hover:text-brass transition-colors">Beranda</a></li>
-                <li><a href="#properti" className="hover:text-brass transition-colors">Properti</a></li>
+                <li><a href="#properties" className="hover:text-brass transition-colors">Properti</a></li>
                 <li><a href="#kontak" className="hover:text-brass transition-colors">Lokasi</a></li>
                 <li><a href="#tentang" className="hover:text-brass transition-colors">Tentang Kami</a></li>
               </ul>
