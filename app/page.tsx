@@ -542,7 +542,7 @@ export default function Home() {
 
         <p className="max-w-md text-sm leading-7 text-[#B9B8AE] sm:text-base">
           Berada di kawasan strategis dengan akses mudah menuju pusat bisnis,
-          pendidikan, hiburan, dan berbagai destinasi utama Tangerang.
+          pendidikan, hiburan, dan berbagai destinasi utama Bandung.
         </p>
 
         {/* Location indicators */}
@@ -606,7 +606,7 @@ export default function Home() {
         <div className="group relative min-h-[420px] overflow-hidden rounded-[24px] bg-[#10211B] sm:min-h-[520px]">
           <img
             src="/image/Environment_01.png"
-            alt="Kawasan strategis Tangerang"
+            alt="Kawasan strategis Bandung"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]"
           />
 
@@ -874,7 +874,7 @@ export default function Home() {
       <h2 className="font-display mx-auto max-w-3xl text-4xl leading-[1.08] text-[#F1EBDD] sm:text-5xl lg:text-6xl">
         Temukan Hunian Terbaik
         <br />
-        di Tangerang
+        di Bandung
       </h2>
 
       {/* Supporting copy */}
@@ -936,7 +936,7 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-paper/10">
             <div>
               <p className="font-display text-2xl text-paper mb-4">Arthiland</p>
-              <p className="text-sm leading-relaxed max-w-xs">Mitra terpercaya Anda dalam mencari hunian terbaik di kawasan Tangerang dan sekitarnya.</p>
+              <p className="text-sm leading-relaxed max-w-xs">Mitra terpercaya Anda dalam mencari hunian terbaik di kawasan Bandung dan sekitarnya.</p>
             </div>
             <div>
               <p className="text-paper text-sm font-medium mb-4">Navigasi</p>

@@ -132,8 +132,8 @@ export default function PropertySection() {
           <div className="mx-auto mt-5 h-px w-12 bg-[#b89555]" />
 
           <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/55">
-            Discover our selection of quality properties in Itaewon Village,
-            Tangerang.
+            Discover our selection of quality properties in Dagoheight,
+            Bandung.
           </p>
         </div>
 
