@@ -569,7 +569,7 @@ export default function Home() {
   {
     time: "25",
     unit: "MIN",
-    title: "WHOOSH",
+    title: "Stasiun Bandung",
     description: "Akses cepat",
   },
 ].map((location) => (
@@ -743,7 +743,7 @@ export default function Home() {
                   href="mailto:hello@tanahaya.id"
                   className="text-sm text-[#E2DED2] transition-colors hover:text-[#D1A665]"
                 >
-                  info@arthiland.id
+                  Arthiland1@gmail.com
                 </a>
               </div>
             </div>
@@ -952,7 +952,7 @@ export default function Home() {
               <p className="text-paper text-sm font-medium mb-4">Kontak</p>
               <ul className="text-sm space-y-3">
                 <li>Dago Heights, Ciburial, Bandung</li>
-                <li>info@arthiland.id</li>
+                <li>Arthiland1@gmail.com</li>
                 <li>+62 818-1880-8111</li>
               </ul>
             </div>
