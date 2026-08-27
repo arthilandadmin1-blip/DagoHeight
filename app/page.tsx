@@ -143,7 +143,7 @@ export default function Home() {
     text-sm text-white/80 shadow-2xl
     pointer-events-auto
   `}
->``
+>
     {[
       ["Beranda", "#beranda"],
       ["Properti", "#properties"],
