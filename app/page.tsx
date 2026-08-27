@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <main className="antialiased">
       {/* NAVBAR */}
-<header className="absolute top-0 left-0 right-0 z-50">
+<header className="absolute top-0 left-0 right-0 z-[100] pointer-events-auto">
   <div className="max-w-[1440px] mx-auto px-6 lg:px-14 h-24 flex items-center justify-between">
 
    {/* Logo */}
@@ -88,12 +88,23 @@ export default function Home() {
       </a>
 
       <button
+        type="button"
         id="menuBtn"
-        className="md:hidden text-white"
-        aria-label="Buka menu"
-        aria-expanded={menuOpen}
-        onClick={() => setMenuOpen((open) => !open)}
-      >
+        className="
+    relative z-[110]
+    md:hidden
+    flex items-center justify-center
+    w-12 h-12
+    text-white
+    pointer-events-auto
+    touch-manipulation
+    cursor-pointer
+    select-none
+  "
+  aria-label="Buka menu"
+  aria-expanded={menuOpen}
+  onClick={() => setMenuOpen((open) => !open)}
+>
         {menuOpen ? (
           <svg
             width="28"
@@ -123,17 +134,19 @@ export default function Home() {
 
   {/* Mobile Navigation */}
   <nav
-    className={`
-      ${menuOpen ? "flex" : "hidden"}
-      md:hidden mx-5 px-6 py-5 flex-col
-      bg-black/85 backdrop-blur-xl
-      border border-white/10 rounded-2xl
-      text-sm text-white/80 shadow-2xl
-    `}
-  >
+  className={`
+    ${menuOpen ? "flex" : "hidden"}
+    relative z-[105]
+    md:hidden mx-5 px-6 py-5 flex-col
+    bg-black/85 backdrop-blur-xl
+    border border-white/10 rounded-2xl
+    text-sm text-white/80 shadow-2xl
+    pointer-events-auto
+  `}
+>``
     {[
       ["Beranda", "#beranda"],
-      ["Properti", "#properti"],
+      ["Properti", "#properties"],
       ["Lokasi", "#lokasi"],
       ["Tentang", "#tentang"],
       ["Kontak", "#kontak"],
@@ -175,7 +188,13 @@ export default function Home() {
   <img
     src="/image/_Aerial_View.png"
     alt="Panorama Dago Heights"
-    className="absolute inset-0 h-full w-full object-cover object-center"
+    className="
+      absolute inset-0
+      h-full w-full
+      object-cover
+      object-[center_45%]
+      sm:object-center
+    "
   />
 
   {/* Luxury overlay */}
@@ -184,14 +203,39 @@ export default function Home() {
 
   {/* Main Content */}
   <div className="relative z-10 flex-1 flex items-center">
-    <div className="max-w-[1440px] w-full mx-auto px-6 lg:px-14 pt-28 pb-48 lg:pb-56">
-      <div className="relative max-w-2xl pl-7 lg:pl-12 border-l border-[#c7a261]/70">
-
+    <div
+      className="
+        max-w-[1440px] w-full mx-auto
+        px-6 lg:px-14
+        pt-28
+        pb-44
+        sm:pb-48
+        lg:pb-56
+      "
+    >
+      <div
+        className="
+          relative max-w-2xl
+          pl-7 lg:pl-12
+          border-l border-[#c7a261]/70
+        "
+      >
         <p className="mb-5 text-xs lg:text-sm tracking-[0.45em] uppercase text-[#d7b979]">
           Private Villa Collection
         </p>
 
-        <h1 className="font-display text-5xl sm:text-6xl lg:text-[76px] leading-[0.95] tracking-[0.12em] text-[#f0d8aa] drop-shadow-lg">
+        <h1
+          className="
+            font-display
+            text-5xl
+            sm:text-6xl
+            lg:text-[76px]
+            leading-[0.95]
+            tracking-[0.12em]
+            text-[#f0d8aa]
+            drop-shadow-lg
+          "
+        >
           DAGO
           <br />
           HEIGHTS
@@ -199,7 +243,16 @@ export default function Home() {
 
         <div className="my-7 h-px w-20 bg-[#c7a261]" />
 
-        <p className="max-w-sm text-xs sm:text-sm lg:text-base leading-relaxed tracking-[0.3em] uppercase text-white/75">
+        <p
+          className="
+            max-w-sm
+            text-xs sm:text-sm lg:text-base
+            leading-relaxed
+            tracking-[0.3em]
+            uppercase
+            text-white/75
+          "
+        >
           Private living in harmony
           <br />
           with nature
@@ -209,91 +262,90 @@ export default function Home() {
   </div>
 
   {/* Property Statistics */}
-<div className="absolute bottom-0 left-0 right-0 z-10">
-  <div className="max-w-[1440px] mx-auto px-6 lg:px-14">
+  <div className="absolute bottom-0 left-0 right-0 z-10">
+    <div className="max-w-[1440px] mx-auto px-6 lg:px-14">
+      <div className="flex items-center w-fit pb-7 lg:pb-9">
 
-    <div className="flex items-center w-fit pb-7 lg:pb-9">
+        {/* 25 Unit */}
+        <div className="flex items-center gap-3 lg:gap-4 pr-6 lg:pr-9">
+          <svg
+            className="w-7 lg:w-9 text-[#c7a261]"
+            viewBox="0 0 48 48"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.4"
+          >
+            <path d="M9 42V13l15-8 15 8v29M5 42h38M16 18h5v5h-5zM27 18h5v5h-5zM16 28h5v5h-5zM27 28h5v5h-5zM21 42V32h6v10" />
+          </svg>
 
-      {/* 25 Unit */}
-      <div className="flex items-center gap-3 lg:gap-4 pr-6 lg:pr-9">
-        <svg
-          className="w-7 lg:w-9 text-[#c7a261]"
-          viewBox="0 0 48 48"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.4"
-        >
-          <path d="M9 42V13l15-8 15 8v29M5 42h38M16 18h5v5h-5zM27 18h5v5h-5zM16 28h5v5h-5zM27 28h5v5h-5zM21 42V32h6v10" />
-        </svg>
-
-        <div>
-          <p className="font-display text-2xl lg:text-3xl leading-none text-[#f0ddbc]">
-            25
-          </p>
-          <p className="mt-1 text-[8px] lg:text-[10px] tracking-[0.25em] uppercase text-white/70">
-            Unit
-          </p>
+          <div>
+            <p className="font-display text-2xl lg:text-3xl leading-none text-[#f0ddbc]">
+              25
+            </p>
+            <p className="mt-1 text-[8px] lg:text-[10px] tracking-[0.25em] uppercase text-white/70">
+              Unit
+            </p>
+          </div>
         </div>
+
+        {/* Separator */}
+        <div className="h-12 lg:h-14 w-px bg-white/25" />
+
+        {/* 3 Lantai */}
+        <div className="flex items-center gap-3 lg:gap-4 px-6 lg:px-9">
+          <svg
+            className="w-7 lg:w-9 text-[#c7a261]"
+            viewBox="0 0 48 48"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.4"
+          >
+            <path d="M24 5 43 15 24 25 5 15 24 5Z" />
+            <path d="m8 23 16 9 16-9M8 31l16 10 16-10" />
+          </svg>
+
+          <div>
+            <p className="font-display text-2xl lg:text-3xl leading-none text-[#f0ddbc]">
+              3
+            </p>
+            <p className="mt-1 text-[8px] lg:text-[10px] tracking-[0.25em] uppercase text-white/70">
+              Lantai
+            </p>
+          </div>
+        </div>
+
+        {/* Separator */}
+        <div className="h-12 lg:h-14 w-px bg-white/25" />
+
+        {/* 1 Private Pool */}
+        <div className="flex items-center gap-3 lg:gap-4 pl-6 lg:pl-9">
+          <svg
+            className="w-7 lg:w-9 text-[#c7a261]"
+            viewBox="0 0 48 48"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.4"
+          >
+            <path d="M20 27V12a7 7 0 0 1 14 0M16 18h18" />
+            <path d="M4 30c4 0 4 3 8 3s4-3 8-3 4 3 8 3 4-3 8-3 4 3 8 3M4 38c4 0 4 3 8 3s4-3 8-3 4 3 8 3 4-3 8-3 4 3 8 3" />
+          </svg>
+
+          <div>
+            <p className="font-display text-2xl lg:text-3xl leading-none text-[#f0ddbc]">
+              1
+            </p>
+            <p className="mt-1 text-[8px] lg:text-[10px] tracking-[0.18em] uppercase whitespace-nowrap text-white/70">
+              Private Pool
+            </p>
+          </div>
+        </div>
+
       </div>
 
-      {/* Separator */}
-      <div className="h-12 lg:h-14 w-px bg-white/25" />
-
-      {/* 3 Lantai */}
-      <div className="flex items-center gap-3 lg:gap-4 px-6 lg:px-9">
-        <svg
-          className="w-7 lg:w-9 text-[#c7a261]"
-          viewBox="0 0 48 48"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.4"
-        >
-          <path d="M24 5 43 15 24 25 5 15 24 5Z" />
-          <path d="m8 23 16 9 16-9M8 31l16 10 16-10" />
-        </svg>
-
-        <div>
-          <p className="font-display text-2xl lg:text-3xl leading-none text-[#f0ddbc]">
-            3
-          </p>
-          <p className="mt-1 text-[8px] lg:text-[10px] tracking-[0.25em] uppercase text-white/70">
-            Lantai
-          </p>
-        </div>
-      </div>
-
-      {/* Separator */}
-      <div className="h-12 lg:h-14 w-px bg-white/25" />
-
-      {/* 1 Private Pool */}
-      <div className="flex items-center gap-3 lg:gap-4 pl-6 lg:pl-9">
-        <svg
-          className="w-7 lg:w-9 text-[#c7a261]"
-          viewBox="0 0 48 48"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.4"
-        >
-          <path d="M20 27V12a7 7 0 0 1 14 0M16 18h18" />
-          <path d="M4 30c4 0 4 3 8 3s4-3 8-3 4 3 8 3 4-3 8-3 4 3 8 3M4 38c4 0 4 3 8 3s4-3 8-3 4 3 8 3 4-3 8-3 4 3 8 3" />
-        </svg>
-
-        <div>
-          <p className="font-display text-2xl lg:text-3xl leading-none text-[#f0ddbc]">
-            1
-          </p>
-          <p className="mt-1 text-[8px] lg:text-[10px] tracking-[0.18em] uppercase whitespace-nowrap text-white/70">
-            Private Pool
-          </p>
-        </div>
-      </div>
-
+      {/* Bottom gold line */}
+      <div className="h-px w-full bg-[#c7a261]/60" />
     </div>
-
-    {/* Bottom gold line */}
-    <div className="h-px w-full bg-[#c7a261]/60" />
   </div>
-</div>
 </section>
 
 <GoldSectionDivider />
@@ -740,7 +792,7 @@ export default function Home() {
                   Email
                 </p>
                 <a
-                  href="mailto:hello@tanahaya.id"
+                  href="mailto:Arthiland1@gmail.com"
                   className="text-sm text-[#E2DED2] transition-colors hover:text-[#D1A665]"
                 >
                   Arthiland1@gmail.com
@@ -944,7 +996,7 @@ export default function Home() {
               <ul className="text-sm space-y-3">
                 <li><a href="#beranda" className="hover:text-brass transition-colors">Beranda</a></li>
                 <li><a href="#properties" className="hover:text-brass transition-colors">Properti</a></li>
-                <li><a href="#kontak" className="hover:text-brass transition-colors">Lokasi</a></li>
+                <li><a href="#lokasi" className="hover:text-brass transition-colors">Lokasi</a></li>
                 <li><a href="#tentang" className="hover:text-brass transition-colors">Tentang Kami</a></li>
               </ul>
             </div>
