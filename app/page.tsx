@@ -478,7 +478,7 @@ export default function Home() {
         </svg>
 
         <h3 className="text-[11px] font-medium uppercase tracking-[0.12em]">
-          Properti Terverifikasid
+          Properti Terverifikasiddd
         </h3>
 
         <p className="mt-3 max-w-[220px] text-xs leading-relaxed text-white/55">
