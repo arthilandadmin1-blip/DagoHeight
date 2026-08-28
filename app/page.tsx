@@ -197,6 +197,7 @@ export default function Home() {
     "
   />
 
+  {/* Luxury overlay */}
   
 
   {/* Main Content */}
