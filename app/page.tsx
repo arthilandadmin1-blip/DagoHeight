@@ -2,7 +2,7 @@
 
 
 import PropertySection from "./components/PropertySection";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 
 
@@ -26,8 +26,58 @@ function GoldSectionDivider() {
   );
 }
 
+type InteriorPhoto = { src: string; label: string };
+
+function InteriorLightbox({ photo, onClose }: { photo: InteriorPhoto; onClose: () => void }) {
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    const previousFocus = document.activeElement;
+    const previousOverflow = document.body.style.overflow;
+    dialog.showModal();
+    document.body.style.overflow = "hidden";
+    return () => {
+      dialog.close();
+      document.body.style.overflow = previousOverflow;
+      if (previousFocus instanceof HTMLElement) previousFocus.focus();
+    };
+  }, []);
+
+  return (
+    <dialog
+      ref={dialogRef}
+      aria-labelledby="interior-photo-caption"
+      onCancel={(event) => { event.preventDefault(); onClose(); }}
+      onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}
+      className="fixed inset-0 m-auto h-[100dvh] max-h-none w-screen max-w-none border-0 bg-black/95 p-4 text-white backdrop:bg-black/80 open:flex open:flex-col open:items-center open:justify-center sm:p-8"
+    >
+      <button
+        type="button"
+        autoFocus
+        onClick={onClose}
+        aria-label="Tutup foto interior"
+        className="absolute right-4 top-4 z-10 flex h-12 w-12 items-center justify-center rounded-full border border-white/40 bg-black/70 text-white hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C7A76A]"
+      >
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="m6 6 12 12M18 6 6 18" />
+        </svg>
+      </button>
+      <figure className="m-0 flex max-h-full w-full max-w-7xl flex-col items-center gap-4 pt-14">
+        <img src={photo.src} alt={photo.label} className="block max-h-[calc(100dvh-180px)] w-auto max-w-full object-contain" />
+        <figcaption id="interior-photo-caption" className="text-center text-sm text-[#f0d8aa]">
+          {photo.label}
+        </figcaption>
+      </figure>
+    </dialog>
+  );
+}
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [selectedInterior, setSelectedInterior] = useState("beaumont");
+  const [expandedPhoto, setExpandedPhoto] = useState<InteriorPhoto | null>(null);
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -45,29 +95,30 @@ export default function Home() {
     className="h-9 lg:h-11 w-auto object-contain"
   />
 </a>
-    {/* Desktop Navigation */}
-    <nav className="hidden md:flex items-center text-sm text-white/80">
-      {[
-        ["Beranda", "#beranda"],
-        ["Properti", "#properties"],
-        ["Lokasi", "#lokasi"],
-        ["Tentang", "#tentang"],
-        ["Kontak", "#kontak"],
-      ].map(([label, href], index) => (
-        <div key={label} className="flex items-center">
-          {index !== 0 && (
-            <span className="mx-7 h-5 w-px bg-white/20" />
-          )}
+{/* Desktop Navigation */}
+<nav className="hidden md:flex items-center text-sm text-white/80">
+  {[
+    ["Beranda", "#beranda"],
+    ["Properti", "#properties"],
+    ["Lokasi", "#lokasi"],
+    ["Tentang", "#tentang"],
+    ["Kontak", "#kontak"],
+  ].map(([label, href], index) => (
+    <div key={label} className="flex items-center">
+      {index !== 0 && (
+        <span className="mx-7 h-5 w-px bg-white/20" />
+      )}
 
-          <a
-            href={href}
-            className="tracking-wide hover:text-[#d5af69] transition-colors duration-300"
-          >
-            {label}
-          </a>
-        </div>
-      ))}
-    </nav>
+      <a
+        href={href}
+        className="tracking-wide hover:text-[#d5af69] transition-colors duration-300"
+        style={{ textShadow: "0 2px 8px rgba(0, 0, 0, 1), 0 2px 40px rgba(0, 0, 0, 0.9)" }}
+      >
+        {label}
+      </a>
+    </div>
+  ))}
+</nav>
 
     {/* CTA */}
     <div className="flex items-center gap-4">
@@ -349,6 +400,51 @@ export default function Home() {
 
 <GoldSectionDivider />
 
+{/* LIFESTYLE INTRODUCTION */}
+<section
+  id="lifestyle"
+  aria-labelledby="lifestyle-heading"
+  className="bg-[#071511] px-6 py-20 text-[#f4efe5] lg:px-10 lg:py-28"
+>
+  <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-20">
+    <div className="relative overflow-hidden rounded-lg border border-[#C7A76A]/20">
+      <img
+        src="/image/Environment_01.png"
+        alt="Ruang keluarga Dago Heights dengan suasana hangat dan terbuka"
+        loading="lazy"
+        className="aspect-[4/3] w-full object-cover"
+      />
+    </div>
+
+    <div className="max-w-lg">
+      <p className="mb-5 text-xs font-medium uppercase tracking-[0.3em] text-[#C7A76A]">
+        The Dago Heights Lifestyle
+      </p>
+      <h2
+        id="lifestyle-heading"
+        className="font-display text-4xl leading-tight sm:text-5xl lg:text-6xl"
+      >
+        A Place to<br />Slow Down.
+      </h2>
+      <div aria-hidden="true" className="my-7 h-px w-16 bg-[#C7A76A]" />
+      <p className="max-w-md text-sm leading-7 text-white/70 sm:text-base">
+        Ruang untuk menikmati pagi, berkumpul bersama keluarga, dan
+        meluangkan waktu untuk diri sendiri. Temukan ritme hidup Anda
+        di Dago Heights.
+      </p>
+      <a
+        href="#properties"
+        className="mt-8 inline-flex min-h-11 items-center gap-3 border-b border-[#C7A76A]/60 py-2 text-sm text-[#dfc28d] transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C7A76A]"
+      >
+        Jelajahi Properti
+        <span aria-hidden="true"><ArrowRight /></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<GoldSectionDivider />
+
      <PropertySection />
 
 <GoldSectionDivider />
@@ -372,70 +468,91 @@ export default function Home() {
       <div className="mx-auto mt-6 h-px w-16 bg-[#9b8152]" />
     </div>
 
-    {/* Interior cards */}
-    <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
-      {/* Private Pool */}
-      <article className="group relative h-[420px] overflow-hidden rounded-lg border border-white/10 bg-[#0b1814]">
-        <img
-          src="/image/Villa Besar_4 (1).png"
-          alt="Private swimming pool"
-          className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
-        />
+    <div className="mb-10 flex flex-col items-center gap-3">
+      <label htmlFor="interior-type" className="text-xs uppercase tracking-[0.2em] text-[#d3c5a5]">
+        Pilih Tipe Interior
+      </label>
+      <div className="relative w-full max-w-xs">
+        <select
+          id="interior-type"
+          value={selectedInterior}
+          onChange={(event) => setSelectedInterior(event.target.value)}
+          aria-controls="interior-gallery"
+          className="min-h-12 w-full cursor-pointer appearance-none rounded-full border border-[#C7A76A]/70 bg-[#0b1814] py-3 pl-6 pr-12 text-sm text-[#f0d8aa] transition-colors hover:border-[#C7A76A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C7A76A]"
+        >
+          <option value="beaumont">Beaumont</option>
+          <option value="montana">Montana</option>
+        </select>
+        <svg aria-hidden="true" className="pointer-events-none absolute right-5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#C7A76A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </div>
+    </div>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-[#06100d] via-transparent to-black/10" />
-
-        <div className="absolute inset-x-0 bottom-0 p-5 lg:p-6">
-          <p className="text-xs font-medium uppercase tracking-[0.22em] text-[#eee5d3]">
-            Private Pool
-          </p>
-
-          <div className="mt-4 h-px w-full bg-white/20">
-            <div className="h-px w-12 bg-[#b69a64] transition-all duration-500 group-hover:w-full" />
+    {/* TODO: Ganti foto setiap tipe setelah aset Beaumont dan Montana dikonfirmasi.
+        Foto pada kedua galeri sementara menggunakan aset interior lama. */}
+    <div id="interior-gallery" aria-live="polite" aria-atomic="true">
+      {[
+        { id: "beaumont", name: "Beaumont", images: [
+          { src: "/image/Villa Besar_6 (1).png", label: "Living Area" },
+          { src: "/image/Villa Besar_4 (1).png", label: "Private Pool" },
+          { src: "/image/Villa Besar_3 (2).png", label: "Backyard" },
+          { src: "/image/Villa Besar_9.png", label: "Rooftop Access" }
+          // Tambahkan foto berikutnya di sini: { src: "/image/nama-file.png", label: "Nama Ruangan" },
+        ] },
+        { id: "montana", name: "Montana", images: [
+          { src: "/image/Villa Kecil_4.png", label: "Living Area" },
+          { src: "/image/backyard and pool.png", label: "Backyard and pool" },
+          { src: "/image/Villa Kecil_8.png", label: "Rooftop Access" },
+          // Tambahkan foto berikutnya di sini: { src: "/image/nama-file.png", label: "Nama Ruangan" },
+        ] },
+      ].filter((interior) => interior.id === selectedInterior).map((interior) => (
+        <section
+          key={interior.id}
+          id={`interior-${interior.id}`}
+          aria-labelledby={`interior-${interior.id}-heading`}
+          className="scroll-mt-24"
+        >
+          <div className="mb-6 flex items-center gap-5 lg:mb-8">
+            <h3
+              id={`interior-${interior.id}-heading`}
+              className="font-display text-3xl text-[#f4efe5] sm:text-4xl"
+            >
+              {interior.name}
+            </h3>
+            <div aria-hidden="true" className="h-px flex-1 bg-[#C7A76A]/30" />
           </div>
-        </div>
-      </article>
-
-      {/* Living Area */}
-      <article className="group relative h-[420px] overflow-hidden rounded-lg border border-white/10 bg-[#0b1814]">
-        <img
-          src="/image/Villa Besar_6 (1).png"
-          alt="Elegant living area"
-          className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-t from-[#06100d] via-transparent to-black/10" />
-
-        <div className="absolute inset-x-0 bottom-0 p-5 lg:p-6">
-          <p className="text-xs font-medium uppercase tracking-[0.22em] text-[#eee5d3]">
-            Living Area
-          </p>
-
-          <div className="mt-4 h-px w-full bg-white/20">
-            <div className="h-px w-12 bg-[#b69a64] transition-all duration-500 group-hover:w-full" />
+          {/* Jumlah kartu mengikuti daftar foto masing-masing tipe. */}
+          <div className={`grid grid-cols-1 gap-3 sm:grid-cols-2 ${interior.images.length === 3 ? "lg:grid-cols-3" : interior.images.length >= 4 ? "lg:grid-cols-4" : ""}`}>
+            {interior.images.map((photo, index) => (
+              <article key={`${photo.src}-${index}`} className="group relative h-[420px] overflow-hidden rounded-lg border border-white/10 bg-[#0b1814]">
+                <button
+                  type="button"
+                  onClick={() => setExpandedPhoto({ src: photo.src, label: `${photo.label} — ${interior.name}` })}
+                  aria-label={`Lihat foto penuh ${photo.label} — ${interior.name}`}
+                  aria-haspopup="dialog"
+                  className="absolute inset-0 z-10 cursor-zoom-in rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[#C7A76A]"
+                />
+                <img
+                  src={photo.src}
+                  loading="lazy"
+                  alt={`${photo.label} — ${interior.name}`}
+                  className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#06100d] via-transparent to-black/10" />
+                <div className="absolute inset-x-0 bottom-0 p-5 lg:p-6">
+                  <p className="text-xs font-medium uppercase tracking-[0.22em] text-[#eee5d3]">
+                    {photo.label}
+                  </p>
+                  <div className="mt-4 h-px w-full bg-white/20">
+                    <div className="h-px w-12 bg-[#b69a64] transition-all duration-500 group-hover:w-full" />
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
-        </div>
-      </article>
-
-      {/* Semi-Outdoor Spa */}
-      <article className="group relative h-[420px] overflow-hidden rounded-lg border border-white/10 bg-[#0b1814]">
-        <img
-          src="/image/Villa Besar_3 (2).png"
-          alt="Semi-outdoor spa"
-          className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-t from-[#06100d] via-transparent to-black/10" />
-
-        <div className="absolute inset-x-0 bottom-0 p-5 lg:p-6">
-          <p className="text-xs font-medium uppercase tracking-[0.22em] text-[#eee5d3]">
-            Semi-Outdoor Spa
-          </p>
-
-          <div className="mt-4 h-px w-full bg-white/20">
-            <div className="h-px w-12 bg-[#b69a64] transition-all duration-500 group-hover:w-full" />
-          </div>
-        </div>
-      </article>
+        </section>
+      ))}
     </div>
   </div>
 </section>
@@ -1023,6 +1140,9 @@ export default function Home() {
           <p className="text-xs text-paper/40 pt-8">© 2026 Arthiland. Seluruh hak cipta dilindungi.</p>
         </div>
       </footer>
+      {expandedPhoto && (
+        <InteriorLightbox photo={expandedPhoto} onClose={() => setExpandedPhoto(null)} />
+      )}
     </main>
   );
 }
