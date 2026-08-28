@@ -57,7 +57,7 @@ function InteriorLightbox({ photo, onClose }: { photo: InteriorPhoto; onClose: (
         type="button"
         autoFocus
         onClick={onClose}
-        aria-label="Tutup foto interior"
+        aria-label="Tutup gambar"
         className="absolute right-4 top-4 z-10 flex h-12 w-12 items-center justify-center rounded-full border border-white/40 bg-black/70 text-white hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C7A76A]"
       >
         <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -818,6 +818,49 @@ export default function Home() {
         </div>
       ))}
     </div>
+  </div>
+</section>
+
+<GoldSectionDivider />
+
+{/* SITEPLAN — letakkan gambar di public/image/Siteplan.png */}
+<section
+  id="siteplan"
+  aria-labelledby="siteplan-heading"
+  className="bg-[#071511] px-6 py-20 text-[#F1EBDD] lg:px-10 lg:py-28"
+>
+  <div className="mx-auto max-w-7xl">
+    <div className="mb-10 text-center lg:mb-14">
+      <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-[#C7A76A]">
+      </p>
+      <h2 id="siteplan-heading" className="font-display text-3xl sm:text-4xl lg:text-5xl">
+        Siteplan
+      </h2>
+      <div aria-hidden="true" className="mx-auto mt-6 h-px w-16 bg-[#C7A76A]" />
+    </div>
+
+    <figure className="mx-auto max-w-5xl">
+      <button
+        type="button"
+        onClick={() => setExpandedPhoto({ src: "/image/Siteplan.png", label: "Siteplan Dago Heights" })}
+        aria-label="Perbesar siteplan Dago Heights"
+        aria-haspopup="dialog"
+        className="block w-full cursor-zoom-in overflow-hidden rounded-lg border border-[#C7A76A]/30 bg-[#0b1814] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C7A76A]"
+      >
+        <img
+          src="/image/Siteplan.png"
+          alt="Siteplan Dago Heights: tata letak unit Beaumont dan Montana serta area future development"
+          width={2048}
+          height={1805}
+          loading="lazy"
+          decoding="async"
+          className="block h-auto w-full object-contain"
+        />
+      </button>
+      <figcaption className="mt-4 text-center text-xs tracking-wide text-white/60">
+        Klik gambar untuk memperbesar.
+      </figcaption>
+    </figure>
   </div>
 </section>
 
