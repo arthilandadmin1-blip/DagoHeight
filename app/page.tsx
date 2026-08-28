@@ -598,19 +598,13 @@ export default function Home() {
         </p>
 
         {/* Location indicators */}
-        <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-9 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-9 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-3">
           {[
   {
     time: "5",
     unit: "MIN",
     title: "Dago Pakar",
     description: "Kuliner & lifestyle",
-  },
-  {
-    time: "10",
-    unit: "MIN",
-    title: "Tahura",
-    description: "Alam & Rekreasi",
   },
   {
     time: "20",
@@ -767,7 +761,7 @@ export default function Home() {
                   Sales Gallery
                 </p>
                 <p className="text-sm leading-6 text-[#E2DED2]">
-                  Dago Heights, Ciburial, Bandung
+                  Dago Heights, Mekarsaluyu, Bandung
                 </p>
               </div>
             </div>
@@ -1003,7 +997,7 @@ export default function Home() {
             <div>
               <p className="text-paper text-sm font-medium mb-4">Kontak</p>
               <ul className="text-sm space-y-3">
-                <li>Dago Heights, Ciburial, Bandung</li>
+                <li>Dago Heights, Mekarsaluyu, Bandung</li>
                 <li>Arthiland1@gmail.com</li>
                 <li>+62 818-1880-8111</li>
               </ul>
