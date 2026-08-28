@@ -186,7 +186,7 @@ export default function Home() {
 >
   {/* Background */}
   <img
-    src="/image/_Aerial_View_2.jpeg"
+    src="/image/_Aerial_View_dark.jfif"
     alt="Panorama Dago Heights"
     className="
       absolute inset-0
@@ -197,9 +197,7 @@ export default function Home() {
     "
   />
 
-  {/* Luxury overlay */}
-  <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/5 to-black/10" />
-  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/55" />
+  
 
   {/* Main Content */}
   <div className="relative z-10 flex-1 flex items-center">
