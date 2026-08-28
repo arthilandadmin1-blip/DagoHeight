@@ -767,7 +767,7 @@ export default function Home() {
 
         <div className="group relative min-h-[420px] overflow-hidden rounded-[24px] bg-[#10211B] sm:min-h-[520px]">
           <img
-            src="/image/Environment_01.png"
+            src="/image/drone.jpeg"
             alt="Kawasan strategis Bandung"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]"
           />
@@ -920,7 +920,7 @@ export default function Home() {
                   Sales Gallery
                 </p>
                 <p className="text-sm leading-6 text-[#E2DED2]">
-                  Dago Heights, Mekarsaluyu, Bandung
+                  Mekarsaluyu, Cimenyan, Bandung, Jawa Barat
                 </p>
               </div>
             </div>
